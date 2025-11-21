@@ -26,13 +26,15 @@ services:
       - APP_CHAT_MODEL=${APP_CHAT_MODEL}
       - APP_EMBEDDING_MODEL=${APP_EMBEDDING_MODEL}
 
-    entrypoint: []
     command:
-      [
-        "sh",
-        "-c",
-        "ollama serve & sleep 5 && (ollama pull ${APP_CHAT_MODEL} || echo 'Failed to pull chat model') && (ollama pull ${APP_EMBEDDING_MODEL} || echo 'Failed to pull embedding model') && wait",
-      ]
+      - sh
+      - -c
+      - |
+        ollama serve & 
+        sleep 5 && 
+        (ollama pull ${APP_CHAT_MODEL} || echo 'Failed to pull chat model') && 
+        (ollama pull ${APP_EMBEDDING_MODEL} || echo 'Failed to pull embedding model') && 
+        wait
     restart: no
     networks:
       - app-network
