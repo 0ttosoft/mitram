@@ -1,0 +1,90 @@
+2025-11-20 12:22:38,876 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_122238.log
+2025-11-20 12:22:38,896 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 12:22:38,900 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 12:22:39,078 - uvicorn.error - INFO - Started server process [10]
+2025-11-20 12:22:39,080 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 12:22:39,082 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 12:22:39,082 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 12:22:39,082 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 12:22:39,085 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 12:22:39,596 - src.main - INFO - Request: GET / from 172.67.182.229
+2025-11-20 12:22:39,601 - src.main - INFO - Response: 200 for GET / - 0.004s
+2025-11-20 12:22:39,678 - src.main - INFO - Request: GET /assets/index-BYVEhCTb.js from 172.67.182.229
+2025-11-20 12:22:39,683 - src.main - INFO - Request: GET /assets/index-5otq0lqL.css from 172.67.182.229
+2025-11-20 12:22:39,691 - src.main - INFO - Response: 200 for GET /assets/index-BYVEhCTb.js - 0.013s
+2025-11-20 12:22:39,699 - src.main - INFO - Response: 200 for GET /assets/index-5otq0lqL.css - 0.016s
+2025-11-20 12:22:40,797 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:22:40,940 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 12:22:40,941 - src.main - INFO - Response: 200 for GET /history/queries - 0.143s
+2025-11-20 12:22:40,945 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.005s
+2025-11-20 12:22:46,737 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 12:22:46,780 - src.rag.repositories - INFO - Models configured: LLM=gemma2:2b, Embedding=nomic-embed-text
+2025-11-20 12:22:46,852 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 12:22:46,855 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 12:22:46,878 - src.rag.repositories - INFO - Database connection established
+2025-11-20 12:22:46,879 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 12:22:46,884 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 12:22:46,895 - src.rag.repositories - INFO - Vector store contains 793 documents
+2025-11-20 12:22:46,896 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 12:22:47,469 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 12:22:47,469 - src.rag.repositories - INFO - Executing query: 'What are principles this book talks?...'
+2025-11-20 12:22:48,040 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 12:22:48,104 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 12:24:30,561 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-20 12:24:30,576 - src.rag.repositories - INFO - Query executed successfully
+2025-11-20 12:24:30,635 - src.history.repositories - INFO - Created query history with ID: a7df1346-cccd-4a96-b2e9-944405021355
+2025-11-20 12:24:30,667 - src.history.services - INFO - Saved query history with ID: a7df1346-cccd-4a96-b2e9-944405021355
+2025-11-20 12:24:30,669 - src.main - INFO - Response: 200 for POST /rag/query - 103.932s
+2025-11-20 12:24:30,742 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:24:30,795 - src.main - INFO - Response: 200 for GET /history/queries - 0.053s
+2025-11-20 12:28:08,796 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 12:28:08,974 - src.rag.repositories - INFO - Models configured: LLM=gemma2:2b, Embedding=nomic-embed-text
+2025-11-20 12:28:12,348 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 12:28:12,364 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 12:28:12,425 - src.rag.repositories - INFO - Database connection established
+2025-11-20 12:28:12,431 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 12:28:12,457 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 12:28:12,487 - src.rag.repositories - INFO - Vector store contains 793 documents
+2025-11-20 12:28:12,487 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 12:28:12,497 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 12:28:12,498 - src.rag.repositories - INFO - Executing query: 'hi...'
+2025-11-20 12:28:12,713 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 12:28:12,856 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 12:28:36,338 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-20 12:28:36,341 - src.rag.repositories - INFO - Query executed successfully
+2025-11-20 12:28:36,379 - src.history.repositories - INFO - Created query history with ID: dd65c2f8-235c-4d3c-b967-ca9922283a0b
+2025-11-20 12:28:36,398 - src.history.services - INFO - Saved query history with ID: dd65c2f8-235c-4d3c-b967-ca9922283a0b
+2025-11-20 12:28:36,399 - src.main - INFO - Response: 200 for POST /rag/query - 27.610s
+2025-11-20 12:28:36,414 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:28:36,466 - src.main - INFO - Response: 200 for GET /history/queries - 0.052s
+2025-11-20 12:30:24,424 - src.main - INFO - Request: GET /history/queries/a7df1346-cccd-4a96-b2e9-944405021355 from 172.67.182.229
+2025-11-20 12:30:24,504 - src.main - INFO - Response: 200 for GET /history/queries/a7df1346-cccd-4a96-b2e9-944405021355 - 0.080s
+2025-11-20 12:34:39,065 - src.main - INFO - Request: GET /history/queries/dd65c2f8-235c-4d3c-b967-ca9922283a0b from 172.67.182.229
+2025-11-20 12:34:39,171 - src.main - INFO - Response: 200 for GET /history/queries/dd65c2f8-235c-4d3c-b967-ca9922283a0b - 0.108s
+2025-11-20 12:39:48,323 - src.main - INFO - Request: GET /history/queries/a7df1346-cccd-4a96-b2e9-944405021355 from 172.67.182.229
+2025-11-20 12:39:48,540 - src.main - INFO - Response: 200 for GET /history/queries/a7df1346-cccd-4a96-b2e9-944405021355 - 0.224s
+2025-11-20 12:39:52,797 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 12:39:52,980 - src.rag.repositories - INFO - Models configured: LLM=gemma2:2b, Embedding=nomic-embed-text
+2025-11-20 12:39:55,773 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 12:39:55,777 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 12:39:55,805 - src.rag.repositories - INFO - Database connection established
+2025-11-20 12:39:55,807 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 12:39:55,835 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 12:39:55,862 - src.rag.repositories - INFO - Vector store contains 793 documents
+2025-11-20 12:39:55,863 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 12:39:55,873 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 12:39:55,873 - src.rag.repositories - INFO - Executing query: 'Big changes can happen?...'
+2025-11-20 12:39:56,035 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 12:39:56,783 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 12:41:04,266 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-20 12:41:04,276 - src.rag.repositories - INFO - Query executed successfully
+2025-11-20 12:41:04,331 - src.history.repositories - INFO - Created query history with ID: ec46505f-f311-405b-ab34-a51adb997aab
+2025-11-20 12:41:04,354 - src.history.services - INFO - Saved query history with ID: ec46505f-f311-405b-ab34-a51adb997aab
+2025-11-20 12:41:04,355 - src.main - INFO - Response: 200 for POST /rag/query - 71.558s
+2025-11-20 12:41:04,375 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:41:04,432 - src.main - INFO - Response: 200 for GET /history/queries - 0.057s
+2025-11-20 12:44:33,974 - uvicorn.error - INFO - Shutting down
+2025-11-20 12:44:34,090 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 12:44:34,099 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 12:44:34,100 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 12:44:34,105 - uvicorn.error - INFO - Finished server process [10]

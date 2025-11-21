@@ -1,0 +1,291 @@
+2025-11-20 07:39:53,438 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_073953.log
+2025-11-20 07:39:53,446 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 07:39:53,448 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 07:39:53,518 - uvicorn.error - INFO - Started server process [9]
+2025-11-20 07:39:53,520 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 07:39:53,522 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 07:39:53,523 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 07:39:53,523 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 07:39:53,526 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 07:39:54,096 - src.main - INFO - Request: GET / from 192.168.65.1
+2025-11-20 07:39:54,102 - src.main - INFO - Response: 200 for GET / - 0.006s
+2025-11-20 07:39:54,866 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:39:54,936 - src.history.repositories - ERROR - Failed to get paginated query history: (psycopg2.errors.UndefinedTable) relation "queryhistory" does not exist
+LINE 2: FROM queryhistory ORDER BY queryhistory.created_at DESC 
+             ^
+
+[SQL: SELECT queryhistory.id, queryhistory.query, queryhistory.chat_response, queryhistory.top_k, queryhistory.response_time_ms, queryhistory.source_document_count, queryhistory.created_at, queryhistory.success, queryhistory.error_message 
+FROM queryhistory ORDER BY queryhistory.created_at DESC 
+ LIMIT %(param_1)s OFFSET %(param_2)s]
+[parameters: {'param_1': 20, 'param_2': 0}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-20 07:39:54,937 - src.main - INFO - Response: 200 for GET /history/queries - 0.072s
+2025-11-20 07:39:57,984 - src.main - INFO - Request: POST /rag/query from 192.168.65.1
+2025-11-20 07:39:58,032 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:39:58,734 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:39:58,740 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:39:58,767 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:39:58,769 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:39:58,774 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:39:58,786 - src.rag.repositories - INFO - Vector store contains 22 documents
+2025-11-20 07:39:58,786 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:39:59,135 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:39:59,135 - src.rag.repositories - INFO - Executing query: 'hi...'
+2025-11-20 07:39:59,391 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:39:59,635 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:40:02,310 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:40:02,312 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:40:02,317 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+
+2025-11-20 07:40:02,318 - src.rag.services - ERROR - Query failed for 'query='hi' top_k=2': model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:40:02,342 - src.history.repositories - ERROR - Failed to create query history: (psycopg2.errors.UndefinedTable) relation "queryhistory" does not exist
+LINE 1: INSERT INTO queryhistory (id, query, chat_response, top_k, r...
+                    ^
+
+[SQL: INSERT INTO queryhistory (id, query, chat_response, top_k, response_time_ms, source_document_count, created_at, success, error_message) VALUES (%(id)s::UUID, %(query)s, %(chat_response)s, %(top_k)s, %(response_time_ms)s, %(source_document_count)s, %(created_at)s, %(success)s, %(error_message)s)]
+[parameters: {'id': UUID('47ebf71e-3e80-49a9-880c-05b9928d9b96'), 'query': 'hi', 'chat_response': 'Error processing query.', 'top_k': 2, 'response_time_ms': 3539, 'source_document_count': 0, 'created_at': datetime.datetime(2025, 11, 20, 7, 40, 2, 318892, tzinfo=datetime.timezone.utc), 'success': False, 'error_message': 'model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-20 07:40:02,343 - src.main - INFO - Response: 200 for POST /rag/query - 4.359s
+2025-11-20 07:40:02,353 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:40:02,379 - src.history.repositories - ERROR - Failed to get paginated query history: (psycopg2.errors.UndefinedTable) relation "queryhistory" does not exist
+LINE 2: FROM queryhistory ORDER BY queryhistory.created_at DESC 
+             ^
+
+[SQL: SELECT queryhistory.id, queryhistory.query, queryhistory.chat_response, queryhistory.top_k, queryhistory.response_time_ms, queryhistory.source_document_count, queryhistory.created_at, queryhistory.success, queryhistory.error_message 
+FROM queryhistory ORDER BY queryhistory.created_at DESC 
+ LIMIT %(param_1)s OFFSET %(param_2)s]
+[parameters: {'param_1': 20, 'param_2': 0}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-20 07:40:02,379 - src.main - INFO - Response: 200 for GET /history/queries - 0.027s
+2025-11-20 07:40:05,963 - src.main - INFO - Request: POST /rag/query from 192.168.65.1
+2025-11-20 07:40:06,008 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:40:07,711 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:40:07,713 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:40:07,741 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:40:07,743 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:40:07,748 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:40:07,757 - src.rag.repositories - INFO - Vector store contains 22 documents
+2025-11-20 07:40:07,757 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:40:07,759 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:40:07,759 - src.rag.repositories - INFO - Executing query: 'When is play considered dead?...'
+2025-11-20 07:40:08,282 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:40:08,596 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:40:11,307 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:40:11,308 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:40:11,310 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+
+2025-11-20 07:40:11,311 - src.rag.services - ERROR - Query failed for 'query='When is play considered dead?' top_k=2': model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:40:11,334 - src.history.repositories - ERROR - Failed to create query history: (psycopg2.errors.UndefinedTable) relation "queryhistory" does not exist
+LINE 1: INSERT INTO queryhistory (id, query, chat_response, top_k, r...
+                    ^
+
+[SQL: INSERT INTO queryhistory (id, query, chat_response, top_k, response_time_ms, source_document_count, created_at, success, error_message) VALUES (%(id)s::UUID, %(query)s, %(chat_response)s, %(top_k)s, %(response_time_ms)s, %(source_document_count)s, %(created_at)s, %(success)s, %(error_message)s)]
+[parameters: {'id': UUID('04f4bccd-45cb-432f-ac03-7bfddf39de1f'), 'query': 'When is play considered dead?', 'chat_response': 'Error processing query.', 'top_k': 2, 'response_time_ms': 3561, 'source_document_count': 0, 'created_at': datetime.datetime(2025, 11, 20, 7, 40, 11, 312142, tzinfo=datetime.timezone.utc), 'success': False, 'error_message': 'model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-20 07:40:11,335 - src.main - INFO - Response: 200 for POST /rag/query - 5.372s
+2025-11-20 07:40:11,344 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:40:11,369 - src.history.repositories - ERROR - Failed to get paginated query history: (psycopg2.errors.UndefinedTable) relation "queryhistory" does not exist
+LINE 2: FROM queryhistory ORDER BY queryhistory.created_at DESC 
+             ^
+
+[SQL: SELECT queryhistory.id, queryhistory.query, queryhistory.chat_response, queryhistory.top_k, queryhistory.response_time_ms, queryhistory.source_document_count, queryhistory.created_at, queryhistory.success, queryhistory.error_message 
+FROM queryhistory ORDER BY queryhistory.created_at DESC 
+ LIMIT %(param_1)s OFFSET %(param_2)s]
+[parameters: {'param_1': 20, 'param_2': 0}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-20 07:40:11,370 - src.main - INFO - Response: 200 for GET /history/queries - 0.026s
+2025-11-20 07:42:31,056 - src.main - INFO - Request: POST /rag/query from 192.168.65.1
+2025-11-20 07:42:31,100 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:42:32,713 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:42:32,724 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:42:32,744 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:42:32,746 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:42:32,751 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:42:32,759 - src.rag.repositories - INFO - Vector store contains 33 documents
+2025-11-20 07:42:32,759 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:42:32,761 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:42:32,761 - src.rag.repositories - INFO - Executing query: 'What happens if the disc goes out of bounds?...'
+2025-11-20 07:42:32,994 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:42:33,269 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:42:35,862 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:42:35,863 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:42:35,866 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+
+2025-11-20 07:42:35,867 - src.rag.services - ERROR - Query failed for 'query='What happens if the disc goes out of bounds?' top_k=2': model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:42:35,890 - src.history.repositories - ERROR - Failed to create query history: (psycopg2.errors.UndefinedTable) relation "queryhistory" does not exist
+LINE 1: INSERT INTO queryhistory (id, query, chat_response, top_k, r...
+                    ^
+
+[SQL: INSERT INTO queryhistory (id, query, chat_response, top_k, response_time_ms, source_document_count, created_at, success, error_message) VALUES (%(id)s::UUID, %(query)s, %(chat_response)s, %(top_k)s, %(response_time_ms)s, %(source_document_count)s, %(created_at)s, %(success)s, %(error_message)s)]
+[parameters: {'id': UUID('e773e8a2-cba7-4c36-81e4-fd392278a7af'), 'query': 'What happens if the disc goes out of bounds?', 'chat_response': 'Error processing query.', 'top_k': 2, 'response_time_ms': 3115, 'source_document_count': 0, 'created_at': datetime.datetime(2025, 11, 20, 7, 42, 35, 868660, tzinfo=datetime.timezone.utc), 'success': False, 'error_message': 'model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-20 07:42:35,891 - src.main - INFO - Response: 200 for POST /rag/query - 4.835s
+2025-11-20 07:42:35,899 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:42:35,924 - src.history.repositories - ERROR - Failed to get paginated query history: (psycopg2.errors.UndefinedTable) relation "queryhistory" does not exist
+LINE 2: FROM queryhistory ORDER BY queryhistory.created_at DESC 
+             ^
+
+[SQL: SELECT queryhistory.id, queryhistory.query, queryhistory.chat_response, queryhistory.top_k, queryhistory.response_time_ms, queryhistory.source_document_count, queryhistory.created_at, queryhistory.success, queryhistory.error_message 
+FROM queryhistory ORDER BY queryhistory.created_at DESC 
+ LIMIT %(param_1)s OFFSET %(param_2)s]
+[parameters: {'param_1': 20, 'param_2': 0}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-20 07:42:35,925 - src.main - INFO - Response: 200 for GET /history/queries - 0.027s
+2025-11-20 07:44:25,644 - uvicorn.error - INFO - Shutting down
+2025-11-20 07:44:25,747 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 07:44:25,749 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 07:44:25,749 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 07:44:25,751 - uvicorn.error - INFO - Finished server process [9]

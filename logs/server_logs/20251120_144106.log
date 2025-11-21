@@ -1,0 +1,47 @@
+2025-11-20 14:41:06,503 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_144106.log
+2025-11-20 14:41:06,513 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 14:41:06,514 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 14:41:06,611 - uvicorn.error - INFO - Started server process [9]
+2025-11-20 14:41:06,613 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 14:41:06,615 - src.main - INFO - 🚀 Ultimate Advisor API server starting...
+2025-11-20 14:41:06,615 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 14:41:06,616 - src.main - INFO - 🔥 Warming up Ollama models (this may take 30-60 seconds)...
+2025-11-20 14:41:06,616 - src.rag.repositories - INFO - 🔥 Starting model warm-up...
+2025-11-20 14:41:06,617 - src.rag.repositories - INFO - Loading embedding model into memory...
+2025-11-20 14:41:06,944 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 14:41:06,945 - src.rag.repositories - INFO - ✓ Embedding model loaded successfully (dim=768)
+2025-11-20 14:41:06,946 - src.rag.repositories - INFO - Loading chat model into memory...
+2025-11-20 14:41:07,199 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 14:41:22,883 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-20 14:41:22,918 - src.rag.repositories - INFO - ✓ Chat model loaded successfully (response: Ready.)
+2025-11-20 14:41:22,919 - src.rag.repositories - INFO - ✅ All models warmed up and ready!
+2025-11-20 14:41:22,919 - src.main - INFO - ✅ Models are ready! Server is now accepting requests.
+2025-11-20 14:41:22,925 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 14:41:22,947 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 14:43:03,850 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 14:43:03,910 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma:latest (timeout=300.0s, keep_alive=5m)
+2025-11-20 14:43:07,427 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 14:43:07,429 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 14:43:07,455 - src.rag.repositories - INFO - Database connection established
+2025-11-20 14:43:07,466 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 14:43:07,472 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 14:43:07,513 - src.rag.repositories - INFO - Vector store contains 793 documents
+2025-11-20 14:43:07,513 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 14:43:07,908 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 14:43:07,909 - src.rag.repositories - INFO - Executing query: 'hello...'
+2025-11-20 14:43:08,145 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 14:43:08,376 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 14:44:25,888 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-20 14:44:25,904 - src.rag.repositories - INFO - Query executed successfully
+2025-11-20 14:44:25,977 - src.history.repositories - INFO - Created query history with ID: ac877b29-cee6-48f1-a42a-091058fd160b
+2025-11-20 14:44:26,018 - src.history.services - INFO - Saved query history with ID: ac877b29-cee6-48f1-a42a-091058fd160b
+2025-11-20 14:44:26,026 - src.main - INFO - Response: 200 for POST /rag/query - 82.176s
+2025-11-20 14:44:26,033 - src.main - INFO - Request: GET / from 172.67.182.229
+2025-11-20 14:44:26,046 - src.main - INFO - Response: 200 for GET / - 0.013s
+2025-11-20 14:44:29,726 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 14:44:29,988 - src.main - INFO - Response: 200 for GET /history/queries - 0.264s
+2025-11-20 14:45:35,956 - uvicorn.error - INFO - Shutting down
+2025-11-20 14:45:36,060 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 14:45:36,061 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 14:45:36,064 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 14:45:36,066 - uvicorn.error - INFO - Finished server process [9]

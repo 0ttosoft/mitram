@@ -1,0 +1,20 @@
+2025-11-20 14:55:16,121 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_145516.log
+2025-11-20 14:55:16,134 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 14:55:16,135 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 14:55:16,377 - uvicorn.error - INFO - Started server process [10]
+2025-11-20 14:55:16,380 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 14:55:16,381 - src.main - INFO - 🚀 Ultimate Advisor API server starting...
+2025-11-20 14:55:16,382 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 14:55:16,382 - src.main - INFO - 🔥 Warming up Ollama models (this may take 30-60 seconds)...
+2025-11-20 14:55:16,382 - src.rag.repositories - INFO - 🔥 Starting model warm-up...
+2025-11-20 14:55:16,384 - src.rag.repositories - INFO - Loading embedding model into memory...
+2025-11-20 14:55:16,387 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 404 Not Found"
+2025-11-20 14:55:16,388 - src.rag.repositories - ERROR - ✗ Failed to warm up embedding model: model "nomic-embed-text" not found, try pulling it first (status code: 404)
+2025-11-20 14:55:16,389 - src.main - WARNING - ⚠️  Model warm-up failed. First requests may be slow.
+2025-11-20 14:55:16,389 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 14:55:16,394 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 15:07:54,872 - uvicorn.error - INFO - Shutting down
+2025-11-20 15:07:55,005 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 15:07:55,010 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 15:07:55,010 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 15:07:55,013 - uvicorn.error - INFO - Finished server process [10]

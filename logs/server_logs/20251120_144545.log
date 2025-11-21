@@ -1,0 +1,43 @@
+2025-11-20 14:45:45,834 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_144545.log
+2025-11-20 14:45:45,842 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 14:45:45,843 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 14:45:45,917 - uvicorn.error - INFO - Started server process [9]
+2025-11-20 14:45:45,919 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 14:45:45,920 - src.main - INFO - 🚀 Ultimate Advisor API server starting...
+2025-11-20 14:45:45,921 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 14:45:45,921 - src.main - INFO - 🔥 Warming up Ollama models (this may take 30-60 seconds)...
+2025-11-20 14:45:45,922 - src.rag.repositories - INFO - 🔥 Starting model warm-up...
+2025-11-20 14:45:45,922 - src.rag.repositories - INFO - Loading embedding model into memory...
+2025-11-20 14:45:46,310 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 14:45:46,311 - src.rag.repositories - INFO - ✓ Embedding model loaded successfully (dim=768)
+2025-11-20 14:45:46,311 - src.rag.repositories - INFO - Loading chat model into memory...
+2025-11-20 14:45:46,546 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 14:45:58,894 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-20 14:45:58,914 - src.rag.repositories - INFO - ✓ Chat model loaded successfully (response: Ready.)
+2025-11-20 14:45:58,915 - src.rag.repositories - INFO - ✅ All models warmed up and ready!
+2025-11-20 14:45:58,916 - src.main - INFO - ✅ Models are ready! Server is now accepting requests.
+2025-11-20 14:45:58,924 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 14:45:58,942 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 14:46:35,328 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 14:46:35,394 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma:latest (timeout=300.0s, keep_alive=5m)
+2025-11-20 14:46:39,108 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 14:46:39,111 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 14:46:39,167 - src.rag.repositories - INFO - Database connection established
+2025-11-20 14:46:39,170 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 14:46:39,177 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 14:46:39,225 - src.rag.repositories - INFO - Vector store contains 793 documents
+2025-11-20 14:46:39,226 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 14:46:39,592 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 14:46:39,593 - src.rag.repositories - INFO - Executing query: 'hi...'
+2025-11-20 14:46:39,830 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 14:46:40,239 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 14:47:44,615 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-20 14:47:44,810 - src.rag.repositories - INFO - Query executed successfully
+2025-11-20 14:47:45,092 - src.history.repositories - INFO - Created query history with ID: 27d86165-b994-4228-86bf-53a793a45c2e
+2025-11-20 14:47:45,141 - src.history.services - INFO - Saved query history with ID: 27d86165-b994-4228-86bf-53a793a45c2e
+2025-11-20 14:47:45,187 - src.main - INFO - Response: 200 for POST /rag/query - 69.858s
+2025-11-20 14:54:49,215 - uvicorn.error - INFO - Shutting down
+2025-11-20 14:54:49,380 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 14:54:49,396 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 14:54:49,401 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 14:54:49,409 - uvicorn.error - INFO - Finished server process [9]

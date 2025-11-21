@@ -1,0 +1,320 @@
+2025-11-20 07:44:30,859 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_074430.log
+2025-11-20 07:44:30,867 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 07:44:30,869 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 07:44:30,913 - uvicorn.error - INFO - Started server process [9]
+2025-11-20 07:44:30,915 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 07:44:30,917 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 07:44:30,917 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 07:44:30,918 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 07:44:30,920 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 07:45:48,928 - src.main - INFO - Request: GET / from 192.168.65.1
+2025-11-20 07:45:48,933 - src.main - INFO - Response: 200 for GET / - 0.005s
+2025-11-20 07:45:49,266 - src.main - INFO - Request: GET /assets/index-3awuEs0M.js from 192.168.65.1
+2025-11-20 07:45:49,280 - src.main - INFO - Request: GET /assets/index-Bb2XApsg.css from 192.168.65.1
+2025-11-20 07:45:49,295 - src.main - INFO - Response: 304 for GET /assets/index-3awuEs0M.js - 0.029s
+2025-11-20 07:45:49,300 - src.main - INFO - Response: 304 for GET /assets/index-Bb2XApsg.css - 0.020s
+2025-11-20 07:45:50,312 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:45:50,426 - src.main - INFO - Response: 200 for GET /history/queries - 0.114s
+2025-11-20 07:45:50,824 - src.main - INFO - Request: GET /vite.svg from 192.168.65.1
+2025-11-20 07:45:50,834 - src.main - INFO - Response: 200 for GET /vite.svg - 0.010s
+2025-11-20 07:46:04,177 - src.main - INFO - Request: POST /rag/query from 192.168.65.1
+2025-11-20 07:46:04,245 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:46:06,626 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:46:06,631 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:46:06,665 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:46:06,668 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:46:06,684 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:46:06,701 - src.rag.repositories - INFO - Vector store contains 33 documents
+2025-11-20 07:46:06,702 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:46:07,210 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:46:07,211 - src.rag.repositories - INFO - Executing query: 'hi...'
+2025-11-20 07:46:07,519 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:46:07,846 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:46:11,641 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:46:11,642 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:46:11,647 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+
+2025-11-20 07:46:11,648 - src.rag.services - ERROR - Query failed for 'query='hi' top_k=2': model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:46:11,699 - src.history.repositories - INFO - Created query history with ID: 7e93c4ae-0dae-4887-813e-fefe8edd4803
+2025-11-20 07:46:11,701 - src.history.services - INFO - Saved query history with ID: 7e93c4ae-0dae-4887-813e-fefe8edd4803
+2025-11-20 07:46:11,702 - src.main - INFO - Response: 200 for POST /rag/query - 7.525s
+2025-11-20 07:46:11,720 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:46:11,782 - src.main - INFO - Response: 200 for GET /history/queries - 0.062s
+2025-11-20 07:46:20,416 - src.main - INFO - Request: POST /rag/query from 192.168.65.1
+2025-11-20 07:46:20,459 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:46:22,738 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:46:22,740 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:46:22,767 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:46:22,768 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:46:22,777 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:46:22,787 - src.rag.repositories - INFO - Vector store contains 33 documents
+2025-11-20 07:46:22,788 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:46:22,794 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:46:22,795 - src.rag.repositories - INFO - Executing query: 'When is play considered dead?...'
+2025-11-20 07:46:23,101 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:46:23,556 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:46:27,546 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:46:27,548 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:46:27,552 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+
+2025-11-20 07:46:27,554 - src.rag.services - ERROR - Query failed for 'query='When is play considered dead?' top_k=2': model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:46:27,603 - src.history.repositories - INFO - Created query history with ID: 41fb382b-c267-4447-b1a0-694421a90931
+2025-11-20 07:46:27,605 - src.history.services - INFO - Saved query history with ID: 41fb382b-c267-4447-b1a0-694421a90931
+2025-11-20 07:46:27,608 - src.main - INFO - Response: 200 for POST /rag/query - 7.193s
+2025-11-20 07:46:27,625 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:46:27,703 - src.main - INFO - Response: 200 for GET /history/queries - 0.078s
+2025-11-20 07:46:56,597 - src.main - INFO - Request: POST /rag/query from 192.168.65.1
+2025-11-20 07:46:56,653 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:46:58,931 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:46:58,932 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:46:58,962 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:46:58,965 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:46:58,969 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:46:58,985 - src.rag.repositories - INFO - Vector store contains 44 documents
+2025-11-20 07:46:58,986 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:46:58,987 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:46:58,987 - src.rag.repositories - INFO - Executing query: 'Directory Structure from ilms-egov...'
+2025-11-20 07:46:59,298 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:46:59,624 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:47:03,391 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:47:03,393 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:47:03,396 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+
+2025-11-20 07:47:03,396 - src.rag.services - ERROR - Query failed for 'query='Directory Structure from ilms-egov' top_k=2': model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:47:03,436 - src.history.repositories - INFO - Created query history with ID: 61660d65-fc0d-4417-9f7f-27357eb055f8
+2025-11-20 07:47:03,437 - src.history.services - INFO - Saved query history with ID: 61660d65-fc0d-4417-9f7f-27357eb055f8
+2025-11-20 07:47:03,439 - src.main - INFO - Response: 200 for POST /rag/query - 6.841s
+2025-11-20 07:47:03,457 - src.main - INFO - Request: GET /history/queries from 192.168.65.1
+2025-11-20 07:47:03,534 - src.main - INFO - Response: 200 for GET /history/queries - 0.077s
+2025-11-20 07:49:06,672 - src.main - INFO - Request: POST /rag/query from 192.168.65.1
+2025-11-20 07:49:06,714 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:49:08,445 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:49:08,447 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:49:08,467 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:49:08,469 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:49:08,475 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:49:08,482 - src.rag.repositories - INFO - Vector store contains 44 documents
+2025-11-20 07:49:08,483 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:49:08,484 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:49:08,485 - src.rag.repositories - INFO - Executing query: 'What is the guide about?...'
+2025-11-20 07:49:08,716 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:49:08,932 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:49:11,186 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:49:11,188 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:49:11,190 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+
+2025-11-20 07:49:11,191 - src.rag.services - ERROR - Query failed for 'query='What is the guide about?' top_k=5': model requires more system memory (7.4 GiB) than is available (5.7 GiB) (status code: 500)
+2025-11-20 07:49:11,218 - src.history.repositories - INFO - Created query history with ID: 27903403-d16c-442d-8947-efd877f7d400
+2025-11-20 07:49:11,219 - src.history.services - INFO - Saved query history with ID: 27903403-d16c-442d-8947-efd877f7d400
+2025-11-20 07:49:11,220 - src.main - INFO - Response: 200 for POST /rag/query - 4.547s
+2025-11-20 07:50:37,600 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 07:50:37,706 - src.main - INFO - Response: 200 for GET /history/queries - 0.106s
+2025-11-20 07:54:46,431 - uvicorn.error - INFO - Shutting down
+2025-11-20 07:54:46,541 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 07:54:46,545 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 07:54:46,546 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 07:54:46,549 - uvicorn.error - INFO - Finished server process [9]

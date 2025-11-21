@@ -1,0 +1,24 @@
+2025-11-20 15:15:07,007 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_151507.log
+2025-11-20 15:15:07,016 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 15:15:07,018 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 15:15:07,070 - uvicorn.error - INFO - Started server process [9]
+2025-11-20 15:15:07,072 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 15:15:07,074 - src.main - INFO - 🚀 Ultimate Advisor API server starting...
+2025-11-20 15:15:07,074 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 15:15:07,075 - src.main - INFO - 🔥 Warming up Ollama models (this may take 30-60 seconds)...
+2025-11-20 15:15:07,075 - src.rag.repositories - INFO - 🔥 Starting model warm-up...
+2025-11-20 15:15:07,076 - src.rag.repositories - INFO - Loading embedding model into memory...
+2025-11-20 15:15:07,433 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 15:15:07,435 - src.rag.repositories - INFO - ✓ Embedding model loaded successfully (dim=768)
+2025-11-20 15:15:07,435 - src.rag.repositories - INFO - Loading chat model into memory...
+2025-11-20 15:15:07,581 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 15:15:09,967 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 15:15:09,969 - src.rag.repositories - ERROR - ✗ Failed to warm up chat model: model requires more system memory (15.9 GiB) than is available (4.9 GiB) (status code: 500)
+2025-11-20 15:15:09,971 - src.main - WARNING - ⚠️  Model warm-up failed. First requests may be slow.
+2025-11-20 15:15:09,972 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 15:15:09,978 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-21 02:06:02,975 - uvicorn.error - INFO - Shutting down
+2025-11-21 02:06:03,319 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-21 02:06:03,340 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-21 02:06:03,358 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-21 02:06:03,362 - uvicorn.error - INFO - Finished server process [9]

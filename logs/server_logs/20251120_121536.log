@@ -1,0 +1,30 @@
+2025-11-20 12:15:36,244 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_121536.log
+2025-11-20 12:15:36,259 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 12:15:36,263 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 12:15:36,536 - uvicorn.error - INFO - Started server process [10]
+2025-11-20 12:15:36,539 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 12:15:36,541 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 12:15:36,543 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 12:15:36,543 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 12:15:36,547 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 12:15:41,689 - src.main - INFO - Request: GET / from 172.67.182.229
+2025-11-20 12:15:41,695 - src.main - INFO - Response: 200 for GET / - 0.006s
+2025-11-20 12:15:41,806 - src.main - INFO - Request: GET /assets/index-BjU3YB-x.js from 172.67.182.229
+2025-11-20 12:15:41,812 - src.main - INFO - Request: GET /assets/index-DuwUWcfK.css from 172.67.182.229
+2025-11-20 12:15:41,815 - src.main - INFO - Response: 200 for GET /assets/index-BjU3YB-x.js - 0.009s
+2025-11-20 12:15:41,825 - src.main - INFO - Response: 200 for GET /assets/index-DuwUWcfK.css - 0.013s
+2025-11-20 12:15:43,017 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:15:43,180 - src.main - INFO - Request: GET /public/piramal-logo.png from 172.67.182.229
+2025-11-20 12:15:43,181 - src.main - INFO - Response: 200 for GET /history/queries - 0.164s
+2025-11-20 12:15:43,185 - src.main - INFO - Response: 200 for GET /public/piramal-logo.png - 0.005s
+2025-11-20 12:15:43,401 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 12:15:43,405 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.003s
+2025-11-20 12:16:04,034 - src.main - INFO - Request: GET /assets/index-DuwUWcfK.css from 172.67.182.229
+2025-11-20 12:16:04,038 - src.main - INFO - Response: 304 for GET /assets/index-DuwUWcfK.css - 0.004s
+2025-11-20 12:16:04,069 - src.main - INFO - Request: GET /.well-known/appspecific/com.chrome.devtools.json from 172.67.182.229
+2025-11-20 12:16:04,071 - src.main - INFO - Response: 200 for GET /.well-known/appspecific/com.chrome.devtools.json - 0.002s
+2025-11-20 12:17:42,439 - uvicorn.error - INFO - Shutting down
+2025-11-20 12:17:42,543 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 12:17:42,545 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 12:17:42,546 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 12:17:42,547 - uvicorn.error - INFO - Finished server process [10]

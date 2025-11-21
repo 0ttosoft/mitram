@@ -1,0 +1,86 @@
+2025-11-20 07:54:56,230 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_075456.log
+2025-11-20 07:54:56,240 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 07:54:56,242 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 07:54:56,335 - uvicorn.error - INFO - Started server process [9]
+2025-11-20 07:54:56,337 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 07:54:56,339 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 07:54:56,339 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 07:54:56,340 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 07:54:56,342 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 07:55:54,763 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 07:55:54,819 - src.rag.repositories - INFO - Models configured: LLM=gemma3:4b, Embedding=embeddinggemma
+2025-11-20 07:55:55,056 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:55:55,058 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 07:55:55,094 - src.rag.repositories - INFO - Database connection established
+2025-11-20 07:55:55,095 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 07:55:55,101 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 07:55:55,111 - src.rag.repositories - INFO - Vector store contains 44 documents
+2025-11-20 07:55:55,112 - src.rag.repositories - INFO - Index not initialized, creating from vector store...
+2025-11-20 07:55:55,648 - src.rag.repositories - INFO - ✓ Index successfully created from vector store
+2025-11-20 07:55:55,648 - src.rag.repositories - INFO - Executing query: 'What is the guide about?...'
+2025-11-20 07:55:55,874 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/show "HTTP/1.1 200 OK"
+2025-11-20 07:55:56,082 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 07:55:58,439 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+2025-11-20 07:55:58,440 - src.rag.repositories - ERROR - Failed to execute query: model requires more system memory (7.4 GiB) than is available (5.1 GiB) (status code: 500)
+2025-11-20 07:55:58,447 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 217, in query
+    response = query_engine.query(query_request.query)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/base/base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/query_engine/retriever_query_engine.py", line 194, in _query
+    response = self._response_synthesizer.synthesize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/base.py", line 235, in synthesize
+    response_str = self.get_response(
+                   ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/response_synthesizers/tree_summarize.py", line 159, in get_response
+    response = self._llm.predict(
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/llm.py", line 623, in predict
+    chat_response = self.chat(messages)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py", line 317, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py", line 175, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py", line 343, in chat
+    response = self.client.chat(
+               ^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 342, in chat
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 180, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.12/site-packages/ollama/_client.py", line 124, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: model requires more system memory (7.4 GiB) than is available (5.1 GiB) (status code: 500)
+
+2025-11-20 07:55:58,448 - src.rag.services - ERROR - Query failed for 'query='What is the guide about?' top_k=5': model requires more system memory (7.4 GiB) than is available (5.1 GiB) (status code: 500)
+2025-11-20 07:55:58,477 - src.history.repositories - INFO - Created query history with ID: cdeffac9-250d-4072-a489-7fcbe7d28841
+2025-11-20 07:55:58,478 - src.history.services - INFO - Saved query history with ID: cdeffac9-250d-4072-a489-7fcbe7d28841
+2025-11-20 07:55:58,478 - src.main - INFO - Response: 200 for POST /rag/query - 3.716s
+2025-11-20 07:57:52,665 - uvicorn.error - INFO - Shutting down
+2025-11-20 07:57:52,770 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 07:57:52,772 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 07:57:52,772 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 07:57:52,774 - uvicorn.error - INFO - Finished server process [9]

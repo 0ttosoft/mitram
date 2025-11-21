@@ -1,0 +1,26 @@
+2025-11-20 12:45:17,121 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_124517.log
+2025-11-20 12:45:17,129 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 12:45:17,130 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 12:45:17,310 - uvicorn.error - INFO - Started server process [10]
+2025-11-20 12:45:17,313 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 12:45:17,314 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 12:45:17,315 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 12:45:17,315 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 12:45:17,318 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 12:45:17,498 - src.main - INFO - Request: GET / from 172.67.182.229
+2025-11-20 12:45:17,504 - src.main - INFO - Response: 200 for GET / - 0.005s
+2025-11-20 12:45:17,590 - src.main - INFO - Request: GET /assets/index-D0ZgT6O3.js from 172.67.182.229
+2025-11-20 12:45:17,593 - src.main - INFO - Response: 200 for GET /assets/index-D0ZgT6O3.js - 0.003s
+2025-11-20 12:45:17,601 - src.main - INFO - Request: GET /assets/index-5otq0lqL.css from 172.67.182.229
+2025-11-20 12:45:17,607 - src.main - INFO - Response: 200 for GET /assets/index-5otq0lqL.css - 0.007s
+2025-11-20 12:45:18,828 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:45:19,022 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 12:45:19,023 - src.main - INFO - Response: 200 for GET /history/queries - 0.194s
+2025-11-20 12:45:19,029 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.007s
+2025-11-20 12:45:21,184 - src.main - INFO - Request: GET /history/queries/ec46505f-f311-405b-ab34-a51adb997aab from 172.67.182.229
+2025-11-20 12:45:21,213 - src.main - INFO - Response: 200 for GET /history/queries/ec46505f-f311-405b-ab34-a51adb997aab - 0.029s
+2025-11-20 13:41:14,742 - uvicorn.error - INFO - Shutting down
+2025-11-20 13:41:14,901 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 13:41:14,908 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 13:41:14,911 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 13:41:14,913 - uvicorn.error - INFO - Finished server process [10]

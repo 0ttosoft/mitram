@@ -1,0 +1,74 @@
+2025-11-20 11:47:28,323 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_114728.log
+2025-11-20 11:47:28,333 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 11:47:28,334 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 11:47:28,537 - uvicorn.error - INFO - Started server process [10]
+2025-11-20 11:47:28,539 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 11:47:28,541 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 11:47:28,541 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 11:47:28,542 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 11:47:28,546 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 11:47:32,726 - src.main - INFO - Request: GET / from 172.67.182.229
+2025-11-20 11:47:32,732 - src.main - INFO - Response: 200 for GET / - 0.006s
+2025-11-20 11:47:32,811 - src.main - INFO - Request: GET /assets/index-DjnqsG8G.js from 172.67.182.229
+2025-11-20 11:47:32,818 - src.main - INFO - Request: GET /assets/index-5otq0lqL.css from 172.67.182.229
+2025-11-20 11:47:32,825 - src.main - INFO - Response: 200 for GET /assets/index-DjnqsG8G.js - 0.014s
+2025-11-20 11:47:32,830 - src.main - INFO - Response: 200 for GET /assets/index-5otq0lqL.css - 0.012s
+2025-11-20 11:47:33,813 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 11:47:33,974 - src.main - INFO - Response: 200 for GET /history/queries - 0.162s
+2025-11-20 11:47:34,185 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 11:47:34,190 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.005s
+2025-11-20 11:47:43,477 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 11:47:43,516 - src.rag.repositories - INFO - Models configured: LLM=gemma2:2b, Embedding=nomic-embed-text
+2025-11-20 11:47:43,596 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 11:47:43,599 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 11:47:43,620 - src.rag.repositories - INFO - Database connection established
+2025-11-20 11:47:43,622 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 11:47:43,627 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 11:47:43,650 - src.rag.repositories - ERROR - No documents in vector store - cannot perform queries
+2025-11-20 11:47:43,650 - src.rag.repositories - ERROR - Failed to execute query: No documents in vector store
+2025-11-20 11:47:43,651 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 195, in query
+    raise ValueError("No documents in vector store")
+ValueError: No documents in vector store
+
+2025-11-20 11:47:43,652 - src.rag.services - ERROR - Query failed for 'query='What are principles this book talks?' top_k=2': No documents in vector store
+2025-11-20 11:47:43,692 - src.history.repositories - INFO - Created query history with ID: 2d857084-b7ca-4f08-a508-36241e2e1a77
+2025-11-20 11:47:43,693 - src.history.services - INFO - Saved query history with ID: 2d857084-b7ca-4f08-a508-36241e2e1a77
+2025-11-20 11:47:43,694 - src.main - INFO - Response: 200 for POST /rag/query - 0.217s
+2025-11-20 11:47:43,702 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 11:47:43,746 - src.main - INFO - Response: 200 for GET /history/queries - 0.044s
+2025-11-20 11:49:47,297 - src.main - INFO - Request: POST /rag/query from 172.67.182.229
+2025-11-20 11:49:47,339 - src.rag.repositories - INFO - Models configured: LLM=gemma2:2b, Embedding=nomic-embed-text
+2025-11-20 11:49:47,460 - httpx - INFO - HTTP Request: POST http://ollama:11434/api/embed "HTTP/1.1 200 OK"
+2025-11-20 11:49:47,462 - src.rag.repositories - INFO - Embedding dimension confirmed: 768
+2025-11-20 11:49:47,486 - src.rag.repositories - INFO - Database connection established
+2025-11-20 11:49:47,488 - src.rag.repositories - INFO - pgvector extension ensured
+2025-11-20 11:49:47,494 - src.rag.repositories - INFO - Vector store configured with table 'documents' (embed_dim=768)
+2025-11-20 11:49:47,503 - src.rag.repositories - ERROR - No documents in vector store - cannot perform queries
+2025-11-20 11:49:47,503 - src.rag.repositories - ERROR - Failed to execute query: No documents in vector store
+2025-11-20 11:49:47,505 - src.rag.repositories - ERROR - Traceback: Traceback (most recent call last):
+  File "/app/src/rag/repositories.py", line 195, in query
+    raise ValueError("No documents in vector store")
+ValueError: No documents in vector store
+
+2025-11-20 11:49:47,505 - src.rag.services - ERROR - Query failed for 'query='hi' top_k=2': No documents in vector store
+2025-11-20 11:49:47,537 - src.history.repositories - INFO - Created query history with ID: 420f3ef3-517a-481e-807d-89d8724807b8
+2025-11-20 11:49:47,538 - src.history.services - INFO - Saved query history with ID: 420f3ef3-517a-481e-807d-89d8724807b8
+2025-11-20 11:49:47,540 - src.main - INFO - Response: 200 for POST /rag/query - 0.243s
+2025-11-20 11:49:47,553 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 11:49:47,598 - src.main - INFO - Response: 200 for GET /history/queries - 0.045s
+2025-11-20 11:50:29,744 - src.main - INFO - Request: GET / from 172.67.182.229
+2025-11-20 11:50:29,747 - src.main - INFO - Response: 200 for GET / - 0.003s
+2025-11-20 11:50:29,966 - src.main - INFO - Request: GET /assets/index-DjnqsG8G.js from 172.67.182.229
+2025-11-20 11:50:29,983 - src.main - INFO - Request: GET /assets/index-5otq0lqL.css from 172.67.182.229
+2025-11-20 11:50:30,009 - src.main - INFO - Response: 304 for GET /assets/index-DjnqsG8G.js - 0.044s
+2025-11-20 11:50:30,047 - src.main - INFO - Response: 304 for GET /assets/index-5otq0lqL.css - 0.064s
+2025-11-20 11:50:30,763 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 11:50:30,848 - src.main - INFO - Response: 200 for GET /history/queries - 0.086s
+2025-11-20 11:50:31,010 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 11:50:31,017 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.008s
+2025-11-20 11:52:03,892 - uvicorn.error - INFO - Shutting down
+2025-11-20 11:52:03,997 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 11:52:04,000 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 11:52:04,000 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 11:52:04,001 - uvicorn.error - INFO - Finished server process [10]

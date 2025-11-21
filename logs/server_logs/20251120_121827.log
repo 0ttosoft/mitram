@@ -1,0 +1,62 @@
+2025-11-20 12:18:27,373 - src.main - INFO - Logging initialized. Log file: logs/server_logs/20251120_121827.log
+2025-11-20 12:18:27,381 - src.main - INFO - Frontend assets mounted at /assets
+2025-11-20 12:18:27,382 - src.main - INFO - SPA routing configured for frontend
+2025-11-20 12:18:27,534 - uvicorn.error - INFO - Started server process [10]
+2025-11-20 12:18:27,536 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-20 12:18:27,537 - src.main - INFO - 🚀 Ultimate Advisor API server started successfully
+2025-11-20 12:18:27,538 - src.main - INFO - 📚 RAG-based chat system for Ultimate Frisbee rules and guidance
+2025-11-20 12:18:27,538 - uvicorn.error - INFO - Application startup complete.
+2025-11-20 12:18:27,541 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-11-20 12:18:28,466 - src.main - INFO - Request: GET /piramal-logo.png from 172.67.182.229
+2025-11-20 12:18:28,472 - src.main - INFO - Response: 200 for GET /piramal-logo.png - 0.006s
+2025-11-20 12:18:41,401 - src.main - INFO - Request: GET /piramal-logo.png from 172.67.182.229
+2025-11-20 12:18:41,403 - src.main - INFO - Response: 200 for GET /piramal-logo.png - 0.002s
+2025-11-20 12:18:41,488 - src.main - INFO - Request: GET /.well-known/appspecific/com.chrome.devtools.json from 172.67.182.229
+2025-11-20 12:18:41,495 - src.main - INFO - Response: 200 for GET /.well-known/appspecific/com.chrome.devtools.json - 0.006s
+2025-11-20 12:18:41,584 - src.main - INFO - Request: GET /assets/index-BJ1urOw_.css from 172.67.182.229
+2025-11-20 12:18:41,585 - src.main - INFO - Request: GET /assets/index-3ESYPDz-.js from 172.67.182.229
+2025-11-20 12:18:41,602 - src.main - INFO - Response: 200 for GET /assets/index-BJ1urOw_.css - 0.019s
+2025-11-20 12:18:41,619 - src.main - INFO - Response: 200 for GET /assets/index-3ESYPDz-.js - 0.034s
+2025-11-20 12:18:42,898 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:18:43,110 - src.main - INFO - Request: GET /public/piramal-logo.png from 172.67.182.229
+2025-11-20 12:18:43,111 - src.main - INFO - Response: 200 for GET /history/queries - 0.213s
+2025-11-20 12:18:43,115 - src.main - INFO - Response: 200 for GET /public/piramal-logo.png - 0.005s
+2025-11-20 12:18:50,546 - src.main - INFO - Request: GET /piramal-logo.png from 172.67.182.229
+2025-11-20 12:18:50,549 - src.main - INFO - Response: 200 for GET /piramal-logo.png - 0.004s
+2025-11-20 12:18:50,601 - src.main - INFO - Request: GET /.well-known/appspecific/com.chrome.devtools.json from 172.67.182.229
+2025-11-20 12:18:50,605 - src.main - INFO - Response: 200 for GET /.well-known/appspecific/com.chrome.devtools.json - 0.004s
+2025-11-20 12:18:50,630 - src.main - INFO - Request: GET /assets/index-3ESYPDz-.js from 172.67.182.229
+2025-11-20 12:18:50,634 - src.main - INFO - Response: 304 for GET /assets/index-3ESYPDz-.js - 0.004s
+2025-11-20 12:18:50,640 - src.main - INFO - Request: GET /assets/index-BJ1urOw_.css from 172.67.182.229
+2025-11-20 12:18:50,644 - src.main - INFO - Response: 304 for GET /assets/index-BJ1urOw_.css - 0.004s
+2025-11-20 12:18:51,521 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:18:51,563 - src.main - INFO - Request: GET /public/piramal-logo.png from 172.67.182.229
+2025-11-20 12:18:51,564 - src.main - INFO - Response: 200 for GET /history/queries - 0.043s
+2025-11-20 12:18:51,567 - src.main - INFO - Response: 200 for GET /public/piramal-logo.png - 0.004s
+2025-11-20 12:18:51,960 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 12:18:51,964 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.004s
+2025-11-20 12:18:55,282 - src.main - INFO - Request: GET / from 172.67.182.229
+2025-11-20 12:18:55,284 - src.main - INFO - Response: 200 for GET / - 0.002s
+2025-11-20 12:18:55,359 - src.main - INFO - Request: GET /assets/index-3ESYPDz-.js from 172.67.182.229
+2025-11-20 12:18:55,362 - src.main - INFO - Request: GET /assets/index-BJ1urOw_.css from 172.67.182.229
+2025-11-20 12:18:55,363 - src.main - INFO - Response: 304 for GET /assets/index-3ESYPDz-.js - 0.004s
+2025-11-20 12:18:55,367 - src.main - INFO - Response: 304 for GET /assets/index-BJ1urOw_.css - 0.005s
+2025-11-20 12:18:56,193 - src.main - INFO - Request: GET /history/queries from 172.67.182.229
+2025-11-20 12:18:56,240 - src.main - INFO - Request: GET /public/piramal-logo.png from 172.67.182.229
+2025-11-20 12:18:56,241 - src.main - INFO - Response: 200 for GET /history/queries - 0.048s
+2025-11-20 12:18:56,244 - src.main - INFO - Response: 200 for GET /public/piramal-logo.png - 0.004s
+2025-11-20 12:19:03,818 - src.main - INFO - Request: GET /assets/index-BJ1urOw_.css from 172.67.182.229
+2025-11-20 12:19:03,821 - src.main - INFO - Response: 304 for GET /assets/index-BJ1urOw_.css - 0.003s
+2025-11-20 12:19:03,854 - src.main - INFO - Request: GET /.well-known/appspecific/com.chrome.devtools.json from 172.67.182.229
+2025-11-20 12:19:03,857 - src.main - INFO - Response: 200 for GET /.well-known/appspecific/com.chrome.devtools.json - 0.003s
+2025-11-20 12:19:35,284 - src.main - INFO - Request: GET /piramal-logo.png from 172.67.182.229
+2025-11-20 12:19:35,286 - src.main - INFO - Response: 200 for GET /piramal-logo.png - 0.002s
+2025-11-20 12:20:15,838 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 12:20:15,840 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.002s
+2025-11-20 12:20:58,486 - src.main - INFO - Request: GET /piramal-favicone.png from 172.67.182.229
+2025-11-20 12:20:58,492 - src.main - INFO - Response: 200 for GET /piramal-favicone.png - 0.006s
+2025-11-20 12:22:02,095 - uvicorn.error - INFO - Shutting down
+2025-11-20 12:22:02,198 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-20 12:22:02,201 - src.main - INFO - 🛑 Ultimate Advisor API server shutting down
+2025-11-20 12:22:02,201 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-20 12:22:02,203 - uvicorn.error - INFO - Finished server process [10]
